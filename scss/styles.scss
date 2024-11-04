@@ -11,7 +11,7 @@ $para-fontsize: 18px;
   text-align: center;
   margin-bottom: 20px;
   font-size: $heading-fontsize;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 @mixin paracom {
@@ -36,12 +36,12 @@ body {
 
 // Header
 .header {
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
   text-align: left;
 }
 
 .logo {
-  width: 320px; /* Adjust size as needed */
+  width: 350px; /* Adjust size as needed */
   height: auto;
 }
 
@@ -89,7 +89,7 @@ body {
     .button-container .btn-primary {
       background-color: #e77400;
       font-size: 1.5em;
-      font-weight: 100;
+      font-weight: 200;
       color: white;
       border: none;
       padding: 12px 24px;
@@ -139,7 +139,7 @@ body {
       color: $primary-color;
       text-align: left;
       margin-bottom: 20px;
-      font-weight: 100;
+      font-weight: 200;
     }
     p {
       @include paracom;
@@ -177,7 +177,7 @@ body {
     color: $bg-color;
     padding: 10px;
     display: inline-block;
-    font-weight: 100;
+    font-weight: 200;
   }
 
   .info-para {
@@ -243,6 +243,16 @@ body {
       @include paracom;
       color: #575757;
       text-align: center;
+      position: relative;
+    }
+
+    .quote-icon {
+      position: absolute;
+      top: 10px;
+      left: -14px; 
+      width: 90px; 
+      height: auto; 
+      opacity: 0.1; 
     }
 
     .author {
@@ -250,6 +260,7 @@ body {
       font-size: 1rem;
       line-height: 1.3;
       text-align: center;
+      font-style: italic;
     }
   }
 }
@@ -342,8 +353,13 @@ body {
 
 // Media Queries
 @media (max-width: 768px) {
+  .logo {
+    width: 250px; 
+    height: auto;
+  }
   .header {
     text-align: center;
+    padding: 20px;
   }
 
   .hero {
@@ -353,7 +369,6 @@ body {
     .hero-text {
       padding: 25px;
     }
-
 
     .desktop-image {
       display: none; /* Hide desktop image on mobile */
@@ -376,10 +391,9 @@ body {
     .feature-card {
       width: 100% !important;
       position: relative;
-      margin:0 !important;
-      
+      margin: 0 !important;
     }
-    p{
+    p {
       margin-bottom: 20px;
     }
 
@@ -391,13 +405,12 @@ body {
       width: 100%;
       height: 2px;
       background-color: #939292;
-      
     }
 
     .feature-card:last-child::after {
       display: none;
     }
-    
+
     .feature-card:not(:last-child):not(:nth-child(2)) {
       border-right: none !important;
     }
@@ -422,14 +435,14 @@ body {
     font-size: 0.9em;
   }
 
-  .features{
+  .features {
     padding: 25px;
   }
 
-  .feature-cards{
-    gap:30px !important;
+  .feature-cards {
+    gap: 30px !important;
   }
   .feature-cards .feature-card {
-    margin:0 !important;
+    margin: 0 !important;
   }
 }
