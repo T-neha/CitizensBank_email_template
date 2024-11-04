@@ -1,0 +1,435 @@
+// Variables
+$primary-color: #00955e;
+$text-color: #333;
+$bg-color: #f9f9f9;
+$para-color: #a1a1a1;
+$heading-fontsize: 30px;
+$para-fontsize: 18px;
+
+@mixin headingcom {
+  color: $primary-color;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: $heading-fontsize;
+  font-weight: 100;
+}
+
+@mixin paracom {
+  text-align: left;
+  color: $para-color;
+  line-height: 1.7;
+  font-size: $para-fontsize;
+}
+
+// Global Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+// Header
+.header {
+  padding: 20px;
+  text-align: left;
+}
+
+.logo {
+  width: 320px; /* Adjust size as needed */
+  height: auto;
+}
+
+// Hero Section
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .hero-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .desktop-image {
+    display: block; /* Show desktop image by default */
+  }
+
+  .mobile-image {
+    display: none; /* Hide mobile image by default */
+  }
+
+  .hero-text {
+    padding: 40px 60px 40px 60px;
+    h1 {
+      @include headingcom;
+    }
+    h1::after {
+      content: "";
+      display: block;
+      width: 80px; /* Width of the line */
+      height: 2.5px; /* Thickness of the line */
+      background-color: $primary-color;
+      margin: 20px auto 0; /* Spacing above and below the line */
+    }
+    p {
+      @include paracom;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button-container .btn-primary {
+      background-color: #e77400;
+      font-size: 1.5em;
+      font-weight: 100;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  }
+}
+
+// Features Section
+.features {
+  padding: 0px 0 40px 0;
+  background-color: white;
+  text-align: center;
+
+  .section-title {
+    @include headingcom;
+    position: relative;
+  }
+  .section-title::after {
+    content: "";
+    display: block;
+    width: 80px; /* Width of the line */
+    height: 2.5px; /* Thickness of the line */
+    background-color: $primary-color;
+    margin: 20px auto 0; /* Spacing above and below the line */
+  }
+
+  .feature-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+
+    .feature-card {
+      width: 45%;
+      text-align: left;
+      background-color: #ffffff;
+      margin: 30px 0px 50px 0px;
+    }
+
+    .feature-card:not(:last-child):not(:nth-child(2)) {
+      border-right: 2px solid #939292;
+    }
+    h2 {
+      color: $primary-color;
+      text-align: left;
+      margin-bottom: 20px;
+      font-weight: 100;
+    }
+    p {
+      @include paracom;
+    }
+    a {
+      color: #899f4d;
+      text-decoration: none;
+    }
+    i {
+      margin-left: 5px;
+      color: #899f4d;
+    }
+    #firstcard {
+      padding-right: 1.3rem;
+    }
+  }
+}
+
+// about section css
+.info-box {
+  color: $text-color;
+  box-sizing: border-box;
+  max-width: 95%;
+  padding-bottom: 2rem;
+  margin: 0 auto;
+
+  .info-heading {
+    background-color: $primary-color;
+    padding: 5px;
+    text-align: center;
+  }
+
+  // Heading styling inside info-box
+  .info-heading h2 {
+    color: $bg-color;
+    padding: 10px;
+    display: inline-block;
+    font-weight: 100;
+  }
+
+  .info-para {
+    background-color: #ebf7f5;
+    padding: 30px 50px 30px 50px;
+  }
+  // Paragraph styling inside info-box
+  p {
+    @include paracom;
+  }
+}
+
+// about section Responsive styling for mobile view
+@media (max-width: 768px) {
+  .info-box {
+    padding: 15px;
+    max-width: 96%;
+
+    h2 {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+    .info-para {
+      padding: 10px;
+    }
+  }
+}
+
+// Testimonials Section
+.testimonials {
+  padding: 40px 110px;
+  display: flex;
+  gap: 250px;
+  justify-content: center;
+  margin-bottom: 4rem;
+
+  .testimonial-card {
+    text-align: center;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05); // Grow on hover for center card if desired
+    }
+
+    .image {
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 15px;
+      overflow: hidden;
+      border-radius: 50%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .review {
+      margin-bottom: 15px;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      @include paracom;
+      color: #575757;
+      text-align: center;
+    }
+
+    .author {
+      color: $primary-color;
+      font-size: 1rem;
+      line-height: 1.3;
+      text-align: center;
+    }
+  }
+}
+
+// Responsiveness Testimonials Section
+@media (max-width: 768px) {
+  .testimonials {
+    flex-direction: column;
+    padding: 40px 80px;
+    gap: 20px;
+
+    .testimonial-card {
+      width: 100%;
+      margin-bottom: 20px;
+
+      &:hover {
+        transform: none; // Disable scaling for mobile view
+      }
+    }
+  }
+}
+
+// Footer section css
+.footer {
+  padding: 40px;
+  font-size: 0.8rem;
+
+  .footer-content {
+    margin-bottom: 2rem;
+  }
+
+  .social-icons {
+    display: flex; // Flexbox for icons
+
+    .social-icon {
+      width: 40px; // Adjust size as needed
+      height: 40px; // Adjust size as needed
+      display: flex; // Center icon
+      align-items: center; // Center icon vertically
+      justify-content: center; // Center icon horizontally
+      margin-right: 10px; // Space between icons
+      text-decoration: none; // Remove underline
+
+      &.facebook {
+        background-color: #3b5998; // Facebook Dark Blue
+      }
+      &.twitter {
+        background-color: #1da1f2; // Twitter Sky Blue
+      }
+      &.linkedin {
+        background-color: #0077b5; // LinkedIn Dark Blue
+      }
+      &.youtube {
+        background-color: #ff0000; // YouTube Red
+      }
+
+      // Icon styling
+      i {
+        color: #fff; // Icon color (white)
+        font-size: 20px; // Adjust icon size
+      }
+
+      &:hover {
+        opacity: 0.8; // Change opacity on hover for effect
+      }
+    }
+  }
+
+  .footer-text {
+    p {
+      margin: 0;
+      line-height: 1.5;
+    }
+    a {
+      color: #333;
+    }
+    .privacy {
+      margin-top: 2rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.footer-line {
+  width: 100%;
+  height: 2px;
+  background-color: $primary-color;
+  margin: 0;
+}
+
+// Media Queries
+@media (max-width: 768px) {
+  .header {
+    text-align: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+
+    .hero-text {
+      padding: 25px;
+    }
+
+
+    .desktop-image {
+      display: none; /* Hide desktop image on mobile */
+    }
+
+    .mobile-image {
+      display: block; /* Show mobile image on mobile */
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .feature-cards {
+    flex-direction: column;
+    gap: 30px;
+
+    .feature-card {
+      width: 100% !important;
+      position: relative;
+      margin:0 !important;
+      
+    }
+    p{
+      margin-bottom: 20px;
+    }
+
+    .feature-card::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0%;
+      width: 100%;
+      height: 2px;
+      background-color: #939292;
+      
+    }
+
+    .feature-card:last-child::after {
+      display: none;
+    }
+    
+    .feature-card:not(:last-child):not(:nth-child(2)) {
+      border-right: none !important;
+    }
+  }
+
+  .testimonials {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text {
+    padding: 25px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.5em;
+  }
+
+  .btn-primary {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+
+  .features{
+    padding: 25px;
+  }
+
+  .feature-cards{
+    gap:30px !important;
+  }
+  .feature-cards .feature-card {
+    margin:0 !important;
+  }
+}
